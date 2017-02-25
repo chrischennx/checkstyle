@@ -47,5 +47,11 @@ machine:
     TEST_4: $CMD1$CMD2$COMMONS$HADOOP$SCOUTER$GROOVY$CMD3
 test:
   override:
-    - case $CIRCLE_NODE_INDEX in 0) eval $TEST_1 ;; 1) eval $TEST_2 ;; 2) eval $TEST_3 ;;  3) eval $TEST_4 ;; esac:
+    - |
+    case $CIRCLE_NODE_INDEX in
+    0) eval $TEST_1 ;;
+    1) eval $TEST_2 ;;
+    2) eval $TEST_3 ;;
+    3) eval $TEST_4 ;;
+    esac:
             parallel: true
